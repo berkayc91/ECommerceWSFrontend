@@ -17,10 +17,12 @@
                 <td>{{category.categoryStatus}}</td>
 
                 <button type="button" class="btn btn-danger" (click)="Delete(category.categoryId)">Delete</button>
+                <button type="button" class="btn btn-warning" (click)="Update(category.categoryId)">Update</button>
 
             </tr>
         </tbody>
     </table>
 
     <p></p>
+    <button type="button" class="" (click)="Add()"> Add Category   </button>
 </div>

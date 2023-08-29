@@ -1,0 +1,16 @@
+<div class="container">
+    <h3>Kategori Kaydet/ Düzenle</h3>
+    <form [formGroup]="mainForm" (ngSubmit)="SaveOrUpdate()" class="custom-form">
+
+        <div class="form-group">
+            <input type = "text" formControlName="CategoryName" class="form-control" placeholder="Kategori Adı">
+            <div *ngIf="mainForm.get('CategoryName')?.hasError('required') && mainForm.get('CategoryName')?.dirty" class="error-message">Kategori Adı Zorunludur</div>
+        </div>
+
+        <div class="form-group">
+            <textarea formControlName="CategoryDescription" class="form-control" placeholder="Açıklama"></textarea>
+            <div *ngIf="mainForm.get('CategoryDescription')?.hasError('required') && mainForm.get('CategoryDescription')?.dirty" class="error-message">Açıklama Zorunludur</div>
+        </div>
+        <button type ="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>

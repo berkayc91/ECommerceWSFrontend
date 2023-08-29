@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BaseListComponent } from 'src/app/base/base-list/base-list.component';
 import { CategoryService } from 'src/app/service/category.service';
 
@@ -9,7 +10,7 @@ import { CategoryService } from 'src/app/service/category.service';
 })
 export class CategoryListComponent extends BaseListComponent implements OnInit {
 
-  constructor( private categoryService: CategoryService) {
+  constructor( private categoryService: CategoryService, protected router : Router) {
     super();
   }
 
@@ -27,6 +28,12 @@ export class CategoryListComponent extends BaseListComponent implements OnInit {
     this.categoryService.Delete_Category(id).subscribe(result=>{
       this.List();
     });
+  }
+  Add(){
+    this.router.navigate([`${this.router.url}/0`])
+  }
+  Update(id:number){
+    this.router.navigate([`${this.router.url}/${id}`])
   }
 
 }
