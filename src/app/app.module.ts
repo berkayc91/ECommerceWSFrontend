@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BaseEditComponent } from './base/base-edit/base-edit.component';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BaseListComponent,
     CategoryListComponent,
     BaseEditComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    ProductListComponent,
+    ProductEditComponent
 
   ],
   imports: [
