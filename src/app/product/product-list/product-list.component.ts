@@ -11,9 +11,9 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductListComponent extends BaseListComponent implements OnInit {
 
   currentFileIndex: number = 0;
-  pageData: any[] = [];
+  
+  pageData: any;
   pageSize: number = 4;
-
   currentPage: any;
   pageArray: any[] = [];
 
@@ -28,10 +28,11 @@ export class ProductListComponent extends BaseListComponent implements OnInit {
   List(page: number)
   {
     this.productService.List_Product(page, this.pageSize).subscribe(result=>{
+      this.currentPage = page;
       console.log(result.data);
       this.list_data = result.data.data;
       this.pageData = result.data;
-
+      this.pageArray = Array.from({length: this.pageData.totalPages}, (_, i) => i + 1)
     })
   }
 
@@ -45,6 +46,11 @@ export class ProductListComponent extends BaseListComponent implements OnInit {
     this.productService.Delete_Product(e).subscribe(result=>{
       this.List(1);
     })
+  }
+
+  Add()
+  {
+    this.route.navigate([`${this.route.url}/0`])
   }
 
 }

@@ -28,4 +28,50 @@
           
     </div>
 
+    <nav aria-label="pages" id="page-card" class="fixed-bottom">
+        <ul class="pagination justify-content-center">
+    
+          <li class="page-item">
+            <button [ngClass]="{'page-item active': currentPage > 1, 'page-item disabled' : currentPage <= 1}" class="page-link" (click)="List(currentPage - 1)">Previous</button>
+          </li>
+    
+          <li class="page-item">
+            <button  class="page-link" (click)="List(1)">1</button>
+          </li>
+    
+          <li class="page-item" *ngIf="currentPage - 1 > 1">
+            <button  class="page-link" (click)="List(currentPage-1)">...</button>
+          </li>
+    
+          <div  *ngFor="let page of pageArray">
+    
+            <li [ngClass]="{'page-item active': currentPage == page, 'page-item' : currentPage != page }" class="page-item active" aria-current="page">
+    
+              <span >
+                <button *ngIf="page != 1 && page != pageArray.length && page == currentPage" type="submit" class="page-link" (click)="List(page)">{{page}}</button>
+              </span>
+             
+            </li>
+    
+          </div>
+    
+          <li class="page-item" *ngIf="pageArray.length - currentPage > 1">
+            <button  class="page-link" (click)="List(currentPage+1)">...</button>
+          </li>
+    
+          <li class="page-item">
+            <button class="page-link" (click)="List(pageArray.length)">{{pageArray.length}}</button>
+          </li>
+    
+          <li class="page-item">
+            <button [ngClass]="{'page-item active': currentPage < pageArray.length, 'page-item disabled' : currentPage >= pageArray.length}" class="page-link" (click)="List(currentPage + 1)">Next</button>
+          </li>
+    
+        </ul>
+      </nav>
+
+      <div class="add-button">
+        <button type="button" id="add-button" class="nav-item nav-link-edit" (click)="Add()">Add Product</button>
+      </div>
+
 </div>

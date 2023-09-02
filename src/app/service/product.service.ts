@@ -13,9 +13,10 @@ export class ProductService {
   List_Product(page: number, pageSize:number)
   {
     let queryParams = new HttpParams();
-    queryParams.append("page", page);
-    queryParams.append("pageSize", pageSize);
-
+    console.log(page)
+    queryParams = queryParams.append("page", page); //?
+    queryParams = queryParams.append("pageSize", pageSize);
+    console.log(queryParams);
     let listApiUrl = `${this.apiUrl}/product/List_Product`;
     return this.http.get<any>(listApiUrl, {params:queryParams} );
   }

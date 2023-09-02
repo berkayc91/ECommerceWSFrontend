@@ -1,1 +1,48 @@
-<p>product-edit works!</p>
+<div class="container">
+    <h3>Product Save/Edit</h3>
+    <form [formGroup]="mainForm" (ngSubmit)="SaveOrUpdate()" class="custom-form">
+
+        <div class="form-group">
+            <input type="text"  [(ngModel)]="ProductName" formControlName="ProductName" class="form-control" placeholder="Product Name">
+            <div *ngIf="mainForm.get('ProductName')?.hasError('required') && mainForm.get('ProductName')?.dirty" class="error-message">Product Name is required</div>
+        </div>
+
+        <div class="form-group">
+            <textarea formControlName="ProductDescription" [(ngModel)]="ProductDescription"  class="form-control" placeholder="Product Description"></textarea>
+            <div *ngIf="mainForm.get('ProductDescription')?.hasError('required') && mainForm.get('ProductDescription')?.dirty" class="error-message">Product Description is required</div>
+        </div>
+
+        <div class="form-group">
+            <input type="number" formControlName="ProductStock" [(ngModel)]="ProductStock" class="form-control" placeholder="Product Stock">
+            <div *ngIf="mainForm.get('ProductStock')?.hasError('required') && mainForm.get('ProductStock')?.dirty" class="error-message">Product Stock is required</div>
+        </div>
+
+        <div class="form-group">
+            <input type="number" formControlName="ProductPrice" [(ngModel)]="ProductPrice" class="form-control" placeholder="Product Price">
+            <div *ngIf="mainForm.get('ProductPrice')?.hasError('required') && mainForm.get('ProductPrice')?.dirty" class="error-message">Product Price is required</div>
+        </div>
+
+        <div class="form-group">
+            <input type="number" formControlName="ProductCategoryId" [(ngModel)]="ProductCategoryId" class="form-control" placeholder="Product Category Id">
+            <div *ngIf="mainForm.get('ProductCategoryId')?.hasError('required') && mainForm.get('ProductCategoryId')?.dirty" class="error-message">Product Category Id is required</div>
+        </div>
+
+        <div class="form-group">
+            <input type="number" formControlName="ProductCampaignId" [(ngModel)]="ProductCampaignId" class="form-control" placeholder="Product Campaign Id">
+            <div *ngIf="mainForm.get('ProductCampaignId')?.hasError('required') && mainForm.get('ProductCampaignId')?.dirty" class="error-message">Product Campaign Id Id is required</div>
+        </div>
+
+        <div class="form-group">
+            <input type="number" formControlName="ProductStatus" [(ngModel)]="ProductStatus" class="form-control" placeholder="Product Status">
+            <div *ngIf="mainForm.get('ProductStatus')?.hasError('required') && mainForm.get('ProductStatus')?.dirty" class="error-message">Product Status is required</div>
+        </div>
+
+        <div class="form-group">
+            <input type="file" formControlName="File" class="form-control" [(ngModel)]="File" multiple (change)="handleFileInput($event)" placeholder="File">
+            <div *ngIf="mainForm.get('File')?.hasError('required') && mainForm.get('File')?.dirty" class="error-message">File is required</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <div id="main-page-button" type="button" class="btn btn-primary"><a class="nav-link" href="/products">Back</a></div>
+    </form>
+</div>

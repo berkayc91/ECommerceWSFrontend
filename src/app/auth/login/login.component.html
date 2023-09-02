@@ -1,0 +1,12 @@
+<div class="container my-5">
+    <form [formGroup]="mainForm" (ngSubmit)="Login()">
+        <div class="form-group">
+          <input type="email" class="form-control" formControlName="UserEmail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control"  formControlName="UserPassword" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div id="main-page-button" type="button" class="btn btn-primary"><a class="nav-link" href="/register">Register</a></div>
+      </form>
+</div>

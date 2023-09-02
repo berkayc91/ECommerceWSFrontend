@@ -12,6 +12,8 @@ import { CategoryEditComponent } from './category/category-edit/category-edit.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
     BaseEditComponent,
     CategoryEditComponent,
     ProductListComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    LoginComponent,
+    RegisterComponent
 
   ],
   imports: [
